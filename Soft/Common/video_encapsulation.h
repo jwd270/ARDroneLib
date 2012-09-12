@@ -78,8 +78,14 @@ typedef enum
 	PAVE_STREAM_ID_SUFFIX_H264_360p = 1,
 	PAVE_STREAM_ID_SUFFIX_H264_720p = 2
 }parrot_video_encapsulation_stream_id_suffixes_t;
+#ifdef __cplusplus
+  extern "C" {
+#endif
 
 C_RESULT init_parrot_video_encapsulation_header(parrot_video_encapsulation_t * header);
 int pave_is_same_frame(parrot_video_encapsulation_t * header1 , parrot_video_encapsulation_t * header2 );
 void dumpPave (parrot_video_encapsulation_t *PaVE);
+#ifdef __cplusplus
+  }
+#endif
 #endif

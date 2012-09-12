@@ -69,7 +69,9 @@ ATcodec_Message_Data_t;
 
 
 // API
-
+#ifdef __cplusplus
+	extern "C"{
+#endif
 /**
  * Initialization of the ATcodec library.
  *
@@ -267,6 +269,9 @@ ATcodec_exit_thread(void);
 void
 ATcodec_Print_Tree(void);
 
+#ifdef __cplusplus
+	}
+#endif
 
 #endif // -> _AT_CODEC_LIBRARY_INCLUDE_
 

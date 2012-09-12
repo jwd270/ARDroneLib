@@ -59,6 +59,9 @@
 
 typedef C_RESULT (*ardrone_at_configuration_set)(void* value, char* ses_id, char* usr_id, char* app_id);
 
+#ifdef __cplusplus
+	extern "C"{
+#endif
 /**
  * @brief Used internally by ARDroneTool as argument to the miscellaneous
  * settings (see AT*MISC command).
@@ -390,6 +393,7 @@ typedef enum
 /********************************************************************
 *                        NAVDATA FUNCTIONS
 ********************************************************************/
+
 
 /**
  * @struct _navdata_unpacked_t
@@ -727,6 +731,8 @@ void ardrone_at_set_pwm( int32_t p1, int32_t p2, int32_t p3, int32_t p4 ) API_WE
 void ardrone_at_set_progress_cmd_with_magneto( int32_t flag, float32_t phi, float32_t theta, float32_t gaz, float32_t yaw,  float32_t magneto_psi, float32_t magneto_psi_accuracy );
 void ardrone_at_set_progress_cmd( int32_t flag, float32_t phi, float32_t theta, float32_t gaz, float32_t yaw);
 
+
+
 /*****************************************************************
 *                       AT CONFIG FUNCTIONS
 *****************************************************************/
@@ -795,7 +801,10 @@ typedef struct _ardrone_config_t
 }
 _ATTRIBUTE_PACKED_ ardrone_config_t;
 
+
+
 void reset_ardrone_config(void);
+
 
 /********************************************************************
  *                        USER FUNCTIONS
@@ -819,11 +828,16 @@ typedef struct _ardrone_users_t
   ardrone_user_t *userList;
 } ardrone_users_t;
 
+
+
 void ardrone_refresh_user_list(void); // Ask for a userlist refresh
 void ardrone_switch_to_user(const char *new_user); // Can be used to create user
 void ardrone_switch_to_user_id(const char *new_user_id); // Must be used only with existing users
 ardrone_users_t *ardrone_get_user_list(void); // Get a list of users (MUST BE FREED BY A ardrone_free_user_list CALL)
 void ardrone_free_user_list (ardrone_users_t **users); // Free an ardrone_users_t list allocated by ardrone_get_user_list
 
+#ifdef __cplusplus
+  }
+#endif
 
 #endif // _ARDRONE_API_H_

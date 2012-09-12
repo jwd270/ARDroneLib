@@ -299,6 +299,10 @@ typedef enum {
   #endif
 } def_ardrone_state_mask_t;
 
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
 static INLINE uint32_t ardrone_set_state_with_mask( uint32_t state, uint32_t mask, bool_t value )
 {
   state &= ~mask;
@@ -330,6 +334,9 @@ static INLINE uint32_t ardrone_time_to_usec( uint32_t time )
   return ((uint32_t)(time >> TSECDEC) * 1000000 + (uint32_t)(time & TUSECMASK));
 }
 
+#ifdef __cplusplus
+  }
+#endif
 
 #ifdef DEBUG_MODE
 #define POSIX_DEBUG

@@ -73,6 +73,7 @@ extern custom_configuration_list_t available_configurations[NB_CONFIG_CATEGORIES
  * \brief Checks if a character is valid in a custom configuration identifier.
  * Currently it checks if the character is an hexadecimal digit.
  */
+
 C_RESULT configuration_check_config_id_char(const char session_id_char);
 
 /**

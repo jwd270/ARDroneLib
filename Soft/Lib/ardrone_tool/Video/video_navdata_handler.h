@@ -11,11 +11,19 @@ extern uint32_t hdvideo_maximum_kilobytes;
 extern float hdvideo_fifo_fill_percentage; // range 0.0 - 100.0
 extern float hdvideo_retrieving_progress; // -1.0 when not retreiving, else range 0.0-1.0
 
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
 C_RESULT video_navdata_handler_init( void* data );
 C_RESULT video_navdata_handler_process( const navdata_unpacked_t* const navdata );
 C_RESULT video_navdata_handler_release( void );
 
 void startRetreiving (void);
 void endRetreiving (void);
+
+#ifdef __cplusplus
+  }
+#endif
 
 #endif // _VIDEO_NAVDATA_HANDLER_H_

@@ -55,6 +55,10 @@ extern ardrone_config_t 	ardrone_control_config;
 extern ardrone_config_t 	ardrone_control_config_default;
 extern ardrone_config_t		ardrone_application_default_config;
 
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
 void ardrone_tool_reset_configuration(void);
 void ardrone_tool_configuration_init(void);
 void ardrone_tool_send_application_default(void);
@@ -64,5 +68,8 @@ bool_t ardrone_tool_configuration_get(ardrone_tool_configuration_callback result
 bool_t ardrone_tool_custom_configuration_get(ardrone_tool_configuration_callback result_callback);
 
 PROTO_THREAD_ROUTINE(ardrone_configuration, data);
+#ifdef __cplusplus
+  }
+#endif
 
 #endif // _ARDRONE_TOOL_CONFIGURATION_H_

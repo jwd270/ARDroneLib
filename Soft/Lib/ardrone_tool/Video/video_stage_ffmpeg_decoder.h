@@ -41,9 +41,17 @@ typedef struct _ffmpeg_stage_decoding_config_t
   struct SwsContext *img_convert_ctx;
 } ffmpeg_stage_decoding_config_t;
 
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
 C_RESULT ffmpeg_stage_decoding_open(ffmpeg_stage_decoding_config_t *cfg);
 C_RESULT ffmpeg_stage_decoding_transform(ffmpeg_stage_decoding_config_t *cfg, vp_api_io_data_t *in, vp_api_io_data_t *out);
 C_RESULT ffmpeg_stage_decoding_close(ffmpeg_stage_decoding_config_t *cfg);
+
+#ifdef __cplusplus
+  }
+#endif
 
 extern const vp_api_stage_funcs_t ffmpeg_decoding_funcs;
 

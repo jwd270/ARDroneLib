@@ -30,6 +30,10 @@ typedef struct _input_state_t
 } input_state_t;
 
 // Input change handling
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
 C_RESULT ardrone_tool_set_ui_pad_ag(int32_t value);
 C_RESULT ardrone_tool_set_ui_pad_ab(int32_t value);
 C_RESULT ardrone_tool_set_ui_pad_ad(int32_t value);
@@ -59,5 +63,9 @@ C_RESULT ardrone_tool_input_reset(void);
 C_RESULT ardrone_tool_input_update(void);
 C_RESULT ardrone_tool_input_shutdown(void);
 C_RESULT ardrone_tool_input_start_reset(void);
+
+#ifdef __cplusplus
+  }
+#endif
 
 #endif // _ARDRONE_INPUT_H_

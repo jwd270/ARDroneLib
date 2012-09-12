@@ -52,6 +52,9 @@ extern void ardrone_tool_display_cmd_line_custom( void ) WEAK;
 extern bool_t ardrone_tool_parse_cmd_line_custom( const char* cmd ) WEAK;
 
 // This is implemented by the library
+#ifdef __cplusplus
+  extern "C"{
+#endif
 int ardrone_tool_main(int argc, char**argv);
 C_RESULT ardrone_tool_init(const char* ardrone_ip, size_t n,
 		AT_CODEC_FUNCTIONS_PTRS *ptrs, const char *appname,
@@ -71,7 +74,9 @@ int main();
 // There because not defined in embedded
 void api_configuration_get_ctrl_mode(void);
 void api_configuration_ack_ctrl_mode(void);
-
+#ifdef __cplusplus
+  }
+#endif
 /*! \page page2
  * @defgroup ARDrone_Tool ARDrone_Tool
 

@@ -20,8 +20,17 @@ typedef struct _ardrone_navdata_file_data_
 
 // For this handler, data is the path where the file will be created
 // If data is NULL then the file is created in current directory
+
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
 C_RESULT ardrone_navdata_file_init( void* data );
 C_RESULT ardrone_navdata_file_process( const navdata_unpacked_t* const navdata );
 C_RESULT ardrone_navdata_file_release( void );
+
+#ifdef __cplusplus
+  }
+#endif
 
 #endif // _ARDRONE_NAVDATA_FILE_H_

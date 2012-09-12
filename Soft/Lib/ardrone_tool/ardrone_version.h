@@ -14,6 +14,11 @@ typedef struct _ardrone_version_t
 #ifndef USE_ELINUX
 extern ardrone_version_t ardroneVersion;
 
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
+
 /**
  * @brief Get the AR.Drone model from its version
  * @param version pointer to the ardrone_version_t structure
@@ -50,6 +55,10 @@ int compareVersions (ardrone_version_t *v1, ardrone_version_t *v2);
  * @return 0 when no error occured, -1 otherwise. version is NOT changed on error
  */
 int getDroneVersion (const char *tempPath, const char *droneIp, ardrone_version_t *version);
+
+#ifdef __cplusplus
+  }
+#endif
 
 #else
 

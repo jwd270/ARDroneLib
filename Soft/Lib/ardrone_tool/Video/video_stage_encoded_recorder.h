@@ -52,6 +52,9 @@ typedef struct _video_stage_encoded_recorder_config_t
 	}video_stage_encoded_recorder_msg_t;
 #endif
 
+#ifdef __cplusplus
+  extern "C" {
+#endif
 
 C_RESULT video_stage_encoded_recorder_handle (video_stage_encoded_recorder_config_t *cfg, PIPELINE_MSG msg_id, void *callback, void *param);
 C_RESULT video_stage_encoded_recorder_open(video_stage_encoded_recorder_config_t *cfg);
@@ -68,6 +71,10 @@ bool_t video_stage_encoded_recorder_state (void);
 C_RESULT video_stage_encoded_recorder_finish (video_stage_encoded_recorder_config_t *cfg);
 int frameIsLastFrame (uint8_t *data);
 
+#ifdef __cplusplus
+  }
+#endif
+
 extern const vp_api_stage_funcs_t video_encoded_recorder_funcs;
 
 extern video_stage_encoded_recorder_config_t video_stage_encoded_recorder_config;
@@ -75,7 +82,16 @@ extern video_stage_encoded_recorder_config_t video_stage_encoded_recorder_config
 
 #ifdef USE_ELINUX
 #define VIDEO_STAGE_ENCODED_RECORDER_STACK_SIZE (8192)
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
 PROTO_THREAD_ROUTINE_STACK(video_stage_encoded_recorder,param,VIDEO_STAGE_ENCODED_RECORDER_STACK_SIZE);
+
+#ifdef __cplusplus
+  }
+#endif
+
 #endif
 
 

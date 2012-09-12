@@ -26,9 +26,17 @@ typedef struct _video_stage_tcp_config_t
 
 } video_stage_tcp_config_t;
 
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
 C_RESULT video_stage_tcp_open(video_stage_tcp_config_t *cfg);
 C_RESULT video_stage_tcp_transform(video_stage_tcp_config_t *cfg, vp_api_io_data_t *in, vp_api_io_data_t *out);
 C_RESULT video_stage_tcp_close(video_stage_tcp_config_t *cfg);
+
+#ifdef __cplusplus
+  }
+#endif
 
 extern const vp_api_stage_funcs_t video_stage_tcp_funcs;
 

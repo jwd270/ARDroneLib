@@ -20,10 +20,18 @@ typedef struct _video_stage_merge_slices_config_t
 }
 video_stage_merge_slices_config_t;
 
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
 C_RESULT video_stage_merge_slices_handle (video_stage_merge_slices_config_t * cfg, PIPELINE_MSG msg_id, void *callback, void *param);
 C_RESULT video_stage_merge_slices_open(video_stage_merge_slices_config_t *cfg);
 C_RESULT video_stage_merge_slices_transform(video_stage_merge_slices_config_t *cfg, vp_api_io_data_t *in, vp_api_io_data_t *out);
 C_RESULT video_stage_merge_slices_close(video_stage_merge_slices_config_t *cfg);
+
+#ifdef __cplusplus
+  }
+#endif
 
 extern const vp_api_stage_funcs_t video_stage_merge_slices_funcs;
 

@@ -14,10 +14,17 @@ typedef struct _mjpeg_stage_decoding_config_t
 
 } mjpeg_stage_decoding_config_t;
 
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
 C_RESULT mjpeg_stage_decoding_open(mjpeg_stage_decoding_config_t *cfg);
 C_RESULT mjpeg_stage_decoding_transform(mjpeg_stage_decoding_config_t *cfg, vp_api_io_data_t *in, vp_api_io_data_t *out);
 C_RESULT mjpeg_stage_decoding_close(mjpeg_stage_decoding_config_t *cfg);
 
+#ifdef __cplusplus
+  }
+#endif
 extern uint32_t mjpeg_stage_num_picture_decoded;
 extern const vp_api_stage_funcs_t mjpeg_decoding_funcs;
 

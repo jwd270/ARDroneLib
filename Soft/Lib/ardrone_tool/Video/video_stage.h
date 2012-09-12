@@ -46,6 +46,9 @@ typedef struct _specific_parameters_t_
 
 extern video_decoder_config_t vec;
 
+#ifdef __cplusplus
+  extern "C" {
+#endif
 PROTO_THREAD_ROUTINE(video_stage, data);
 
 static inline unsigned long RoundPower2(unsigned long x)
@@ -62,5 +65,8 @@ void video_stage_suspend_thread(void);
 void video_stage_resume_thread(void);
 uint32_t video_stage_get_num_retries(void);
 
+#ifdef __cplusplus
+  }
+#endif
 
 #endif // _VIDEO_STAGE_H_

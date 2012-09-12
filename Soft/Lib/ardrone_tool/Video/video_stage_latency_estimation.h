@@ -27,10 +27,18 @@ typedef struct {
 	vlib_stage_decoding_config_t * last_decoded_frame_info;
 }vp_stages_latency_estimation_config_t;
 
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
 C_RESULT latency_estimation_stage_handle_message(void *cfg, PIPELINE_MSG msg_id, void *callback, void *param);
 C_RESULT latency_estimation_stage_open( vp_stages_latency_estimation_config_t *cfg );
 C_RESULT latency_estimation_stage_transform( vp_stages_latency_estimation_config_t *cfg , vp_api_io_data_t *in, vp_api_io_data_t *out);
 C_RESULT latency_estimation_stage_close( vp_stages_latency_estimation_config_t *cfg );
+
+#ifdef __cplusplus
+  }
+#endif
 
 extern const vp_api_stage_funcs_t vp_stages_latency_estimation_funcs;
 

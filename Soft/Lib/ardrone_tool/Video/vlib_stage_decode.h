@@ -11,9 +11,17 @@ typedef struct _vlib_stage_decoding_config_t
 
 } vlib_stage_decoding_config_t;
 
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
 C_RESULT vlib_stage_decoding_open(vlib_stage_decoding_config_t *cfg);
 C_RESULT vlib_stage_decoding_transform(vlib_stage_decoding_config_t *cfg, vp_api_io_data_t *in, vp_api_io_data_t *out);
 C_RESULT vlib_stage_decoding_close(vlib_stage_decoding_config_t *cfg);
+
+#ifdef __cplusplus
+  }
+#endif
 
 extern const vp_api_stage_funcs_t vlib_decoding_funcs;
 

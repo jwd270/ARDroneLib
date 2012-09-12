@@ -26,9 +26,17 @@ typedef struct _buffer_to_picture_config_t
 
 } buffer_to_picture_config_t;
 
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
 C_RESULT buffer_to_picture_open(buffer_to_picture_config_t *cfg);
 C_RESULT buffer_to_picture_transform(buffer_to_picture_config_t *cfg, vp_api_io_data_t *in, vp_api_io_data_t *out);
 C_RESULT buffer_to_picture_close(buffer_to_picture_config_t *cfg);
+
+#ifdef __cplusplus
+  }
+#endif
 
 extern const vp_api_stage_funcs_t buffer_to_picture_funcs;
 

@@ -40,10 +40,17 @@ typedef struct _ittiam_stage_decoding_config_t {
     uint32_t num_picture_decoded;
 } ittiam_stage_decoding_config_t;
 
+#ifdef __cplusplus
+  extern "C" {
+#endif
 
 C_RESULT ittiam_stage_decoding_open(ittiam_stage_decoding_config_t *cfg);
 C_RESULT ittiam_stage_decoding_transform(ittiam_stage_decoding_config_t *cfg, vp_api_io_data_t *in, vp_api_io_data_t *out);
 C_RESULT ittiam_stage_decoding_close(ittiam_stage_decoding_config_t *cfg);
+
+#ifdef __cplusplus
+  }
+#endif
 
 extern const vp_api_stage_funcs_t ittiam_decoding_funcs;
 

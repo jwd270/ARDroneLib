@@ -33,12 +33,20 @@ struct _ardrone_academy_stage_recorder_config_t_
 	char video_filename[ACADEMY_MAX_FILENAME];
 };
 
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
 bool_t ardrone_academy_stage_recorder_state(void);
 void ardrone_academy_stage_recorder_enable(bool_t enable, uint32_t timestamps);
 
 C_RESULT ardrone_academy_stage_recorder_open(ardrone_academy_stage_recorder_config_t *cfg);
 C_RESULT ardrone_academy_stage_recorder_transform(ardrone_academy_stage_recorder_config_t *cfg, vp_api_io_data_t *in, vp_api_io_data_t *out);
 C_RESULT ardrone_academy_stage_recorder_close(ardrone_academy_stage_recorder_config_t *cfg);
+
+#ifdef __cplusplus
+  }
+#endif
 
 extern const vp_api_stage_funcs_t ardrone_academy_stage_recorder_funcs;
 extern ardrone_academy_stage_recorder_config_t ardrone_academy_stage_recorder_config;

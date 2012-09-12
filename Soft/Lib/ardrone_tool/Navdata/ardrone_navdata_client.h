@@ -51,6 +51,10 @@ typedef enum
 
 extern ardrone_navdata_handler_t ardrone_navdata_handler_table[] WEAK;
 
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
 uint32_t ardrone_navdata_client_get_num_retries(void);
 C_RESULT ardrone_navdata_client_init(void);
 C_RESULT ardrone_navdata_client_suspend(void);
@@ -59,5 +63,9 @@ C_RESULT ardrone_navdata_client_shutdown(void);
 C_RESULT ardrone_navdata_open_server(void);
 
 PROTO_THREAD_ROUTINE( navdata_update , nomParams );
+
+#ifdef __cplusplus
+  }
+#endif
 
 #endif // _ARDRONE_NAVDATA_H_

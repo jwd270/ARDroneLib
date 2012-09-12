@@ -26,11 +26,18 @@ typedef struct _video_stage_recorder_config_t
 	int stage;
 } video_stage_recorder_config_t;
 
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
 C_RESULT video_stage_recorder_handle (video_stage_recorder_config_t * cfg, PIPELINE_MSG msg_id, void *callback, void *param);
 C_RESULT video_stage_recorder_open(video_stage_recorder_config_t *cfg);
 C_RESULT video_stage_recorder_transform(video_stage_recorder_config_t *cfg, vp_api_io_data_t *in, vp_api_io_data_t *out);
 C_RESULT video_stage_recorder_close(video_stage_recorder_config_t *cfg);
 
+#ifdef __cplusplus
+  }
+#endif
 extern const vp_api_stage_funcs_t video_recorder_funcs;
 
 #endif // _VIDEO_STAGE_RECORDER_H_

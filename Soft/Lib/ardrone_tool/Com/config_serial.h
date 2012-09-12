@@ -13,6 +13,10 @@
 /// Serial link 1 is used for video
 /// Serial link 2 is used for communication with ADC
 
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
 // Each tools must implement this functions
 extern vp_com_t*             serial_com(void);
 extern vp_com_config_t*      serial_config_0(void);
@@ -22,7 +26,13 @@ extern vp_com_connection_t*  serial_connection_0(void);
 extern vp_com_connection_t*  serial_connection_1(void);
 extern vp_com_connection_t*  serial_connection_2(void);
 
+
+
 void serial_config_socket(vp_com_socket_t* socket, VP_COM_SOCKET_TYPE type);
+
+#ifdef __cplusplus
+  }
+#endif
 
 #ifdef USE_NAVDATA_SERIAL
   #define COM_NAVDATA()             serial_com()

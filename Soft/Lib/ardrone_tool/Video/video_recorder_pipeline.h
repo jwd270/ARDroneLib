@@ -30,11 +30,19 @@ typedef struct _video_recorder_thread_param_t_
     video_stage_encoded_recorder_callback finish_callback;
 } video_recorder_thread_param_t;
 
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
 PROTO_THREAD_ROUTINE (video_recorder, data);
 
 void video_recorder_init(void);
 void video_recorder_suspend_thread(void);
 void video_recorder_resume_thread(void);
 uint32_t video_recorder_get_num_retries(void);
+
+#ifdef __cplusplus
+  }
+#endif
 
 #endif

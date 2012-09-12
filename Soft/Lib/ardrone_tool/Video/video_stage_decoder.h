@@ -49,10 +49,17 @@ typedef struct _video_decoder_config_t
   vp_api_io_data_t *mp4h264Out;
 } video_decoder_config_t;
 
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
 C_RESULT video_stage_decoder_open (video_decoder_config_t *cfg);
 C_RESULT video_stage_decoder_transform (video_decoder_config_t *cfg, vp_api_io_data_t *in, vp_api_io_data_t *out);
 C_RESULT video_stage_decoder_close (video_decoder_config_t *cfg);
 
+#ifdef __cplusplus
+  }
+#endif
 extern const vp_api_stage_funcs_t video_decoding_funcs;
 
 #endif // __VIDEO_STAGE_DECODER_H__

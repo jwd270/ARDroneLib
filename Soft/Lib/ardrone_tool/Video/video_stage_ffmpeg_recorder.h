@@ -37,6 +37,10 @@ typedef struct _video_stage_ffmpeg_recorder_config_t
 	int flag_video_file_open;
 } video_stage_ffmpeg_recorder_config_t;
 
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
 C_RESULT video_stage_ffmpeg_recorder_handle (video_stage_ffmpeg_recorder_config_t * cfg, PIPELINE_MSG msg_id, void *callback, void *param);
 C_RESULT video_stage_ffmpeg_recorder_open(video_stage_ffmpeg_recorder_config_t *cfg);
 C_RESULT video_stage_ffmpeg_recorder_transform(video_stage_ffmpeg_recorder_config_t *cfg, vp_api_io_data_t *in, vp_api_io_data_t *out);
@@ -49,6 +53,10 @@ AVFrame *alloc_picture(enum PixelFormat pix_fmt, int width, int height);
 void open_video(AVFormatContext *oc, AVStream *st);
 void write_video_frame(AVFormatContext *oc, AVStream *st);
 void close_video(AVFormatContext *oc, AVStream *st);
+
+#ifdef __cplusplus
+  }
+#endif
 
 extern const vp_api_stage_funcs_t video_ffmpeg_recorder_funcs;
 
